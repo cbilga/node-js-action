@@ -8,8 +8,8 @@ jobs:
     name: "Configuring NPM"
     runs-on: ubuntu-latest
     steps:
-      - run: npm install
-      - run: apt install jest
+      - run: sudo npm install
+      - run: sudo apt install jest
       - run: npm test
   second:
     runs-on: ubuntu-latest
