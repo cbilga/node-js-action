@@ -4,16 +4,23 @@ on:
   [push]
 
 jobs:
-  npm:
+  build:
     name: "Configuring NPM"
+
     runs-on: ubuntu-latest
+
     steps:
-      - run: sudo npm install
-      - run: sudo apt install jest
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      - run: npm ci
+      - run: npm run build --if-present
       - run: npm test
   second:
     runs-on: ubuntu-latest
-    if: needs.npm.result == 'success'
+    if: needs.build.result == 'success'
     steps:
       - run: echo "Second job running"
 
