@@ -5,7 +5,6 @@ on:
 
 jobs:
   build:
-    name: build
 
     runs-on: ubuntu-latest
 
@@ -20,7 +19,7 @@ jobs:
       - run: npm test
   second:
     runs-on: ubuntu-latest
-    if: needs.build.result == 'success'
+    needs: [build]
     steps:
       - run: echo "Second job running"
 
