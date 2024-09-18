@@ -1,0 +1,19 @@
+name: Node JS deployment
+
+on:
+  [push]
+
+jobs:
+  npm:
+    name: "Configuring NPM"
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm install
+      - run: apt install jest
+      - run: npm test
+  second:
+    runs-on: ubuntu-latest
+    if: needs.npb.result == 'success'
+    steps:
+      - run: echo "Second job running"
+
