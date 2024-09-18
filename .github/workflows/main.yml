@@ -13,7 +13,7 @@ jobs:
       - run: npm test
   second:
     runs-on: ubuntu-latest
-    if: needs.npb.result == 'success'
+    if: needs.npm.result == 'success'
     steps:
       - run: echo "Second job running"
 
