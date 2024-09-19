@@ -1,7 +1,11 @@
 name: Node JS deployment
 
 on:
-  [push]
+  push:
+    branches:
+      - master
+      - main
+
 
 jobs:
   build:
