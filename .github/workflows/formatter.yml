@@ -17,6 +17,8 @@ jobs:
         uses: permafrost-dev/prettier-docker-ga@main
         with:
           args: --config prettier.config.js .
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
