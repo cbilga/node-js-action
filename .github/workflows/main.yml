@@ -14,12 +14,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
-      - run: npm ci
+      - run: npm ci #install for ci/cd
       - run: npm run build --if-present
       - run: npm test
+      - run: jest --coverage
+      - name: Coveralls
+        uses: coverallsapp/github-action@v2
   second:
     runs-on: ubuntu-latest
-    needs: [build]
+    needs: [build] #check si le job "build" a reussi
     steps:
       - run: echo "Second job running"
 
