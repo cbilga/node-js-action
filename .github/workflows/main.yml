@@ -17,7 +17,9 @@ jobs:
       - run: npm ci #install for ci/cd
       - run: npm run build --if-present
       - run: npm test
-      - run: jest --coverage
+      - name: Jest Test
+        uses: ArtiomTr/jest-coverage-report-action@v2
+        run: npm test --coverage
       - name: Coveralls
         uses: coverallsapp/github-action@v2
   second:
