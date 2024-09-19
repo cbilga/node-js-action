@@ -19,7 +19,6 @@ jobs:
       - run: npm test
       - name: Jest Test
         uses: ArtiomTr/jest-coverage-report-action@v2
-        run: npm test --coverage
       - name: Coveralls
         uses: coverallsapp/github-action@v2
   second:
