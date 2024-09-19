@@ -4,11 +4,23 @@ on:
   push:
 
 jobs:
-  actiounlint:
+  prettier:
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
-      - name: actionlint
-        uses: raven-actions/actionlint@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
 
+      - name: Prettier
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx prettier --write **/*.js
 
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          commit_message: Fix styling
