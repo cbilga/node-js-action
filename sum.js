@@ -4,9 +4,9 @@ function sum(a, b) {
 
 
 function min(a,b) {
+let a = "gg"
 
 
-	
 	return (a)
 }
 
