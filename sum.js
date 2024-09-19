@@ -7,5 +7,4 @@ function min(a,b) {
 	return (a)
 }
 
-module.exports = sum;
-module.exports = min;
+module.exports = {sum,min};
