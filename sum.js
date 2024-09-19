@@ -4,7 +4,7 @@ function sum(a, b) {
 
 
 function min(a,b) {
-let a = "gg"
+let g = "gg"
 
 
 	return (a)
